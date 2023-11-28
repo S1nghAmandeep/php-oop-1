@@ -26,7 +26,40 @@ class Production
     }
 }
 
-$marvel = new Production('Thor', 'italiano', 4);
-$dc = new Production('Batman', 'italiano', 3);
+$marvel = new Production('Thor', 'Italiano', 4);
+$dc = new Production('Batman', 'Italiano', 3);
+$disney = new Production('Toy Story', 'Italinao', 5);
 
-var_dump($marvel, $dc);
+// var_dump($marvel, $dc);
+
+$movies = [
+    $marvel,
+    $dc,
+    $disney
+];
+
+// var_dump($movies);
+
+?>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Film</th>
+                <th>Language</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($movies as $film) { ?>
+                <tr>
+                    <td><?php echo $film->title ?></td>
+                    <td><?php echo $film->language ?></td>
+                    <td><?php echo $film->rating ?></td>
+                </tr>
+            <?php
+            } ?>
+        </tbody>
+    </table>
+</div>
