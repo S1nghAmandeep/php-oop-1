@@ -7,16 +7,6 @@ class Production
     public $language;
     public $rating;
 
-    function __construct($_title, $_language, $_rating)
-    {
-        // $this->title = $_title;
-        $this->setTitle($_title);
-        // $this->language = $_language;
-        $this->setLanguage($_language);
-        // $this->rating = $_rating;
-        $this->setRating($_rating);
-    }
-
     public function setTitle($title)
     {
         if (is_string($title)) {
@@ -56,11 +46,21 @@ class Production
     {
         return $this->rating;
     }
+
+    function __construct($_title, $_language, $_rating)
+    {
+        // $this->title = $_title;
+        $this->setTitle($_title);
+        // $this->language = $_language;
+        $this->setLanguage($_language);
+        // $this->rating = $_rating;
+        $this->setRating($_rating);
+    }
 }
 
 $marvel = new Production('Thor', 'Italiano', 4);
 $dc = new Production('Batman', 'Italiano', 3);
-$disney = new Production('Toy Story', 'Italinao', 5);
+$disney = new Production('Toy Story', 'Italiano', 5);
 
 // var_dump($marvel, $dc, $disney);
 
@@ -101,16 +101,13 @@ $movies = [
                         <td>
                             <?php for ($i = 0; $i < $film->rating; $i++) { ?>
                                 &starf;
-                            <?php
-                            }
+                            <?php }
                             for ($i = 0; $i < 5 - $film->rating; $i++) { ?>
                                 &star;
-                            <?php
-                            } ?>
+                            <?php } ?>
                         </td>
                     </tr>
-                <?php
-                } ?>
+                <?php } ?>
             </tbody>
         </table>
     </div>
