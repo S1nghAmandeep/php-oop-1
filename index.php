@@ -9,10 +9,28 @@ class Production
 
     function __construct($_title, $_language, $_rating)
     {
-        $this->title = $_title;
-        $this->language = $_language;
+        // $this->title = $_title;
+        $this->setTitle($_title);
+        // $this->language = $_language;
+        $this->setLanguage($_language);
         // $this->rating = $_rating;
         $this->setRating($_rating);
+    }
+
+    public function setTitle($title)
+    {
+        if (is_string($title)) {
+            $this->title = $title;
+        } else {
+            $this->$title = null;
+        }
+    }
+
+    public function setLanguage($language)
+    {
+        if (is_string($language)) {
+            $this->language = $language;
+        }
     }
 
     public function setRating($rating)
@@ -20,8 +38,7 @@ class Production
         if (is_numeric($rating)) {
             $this->rating = intval($rating);
         } else {
-            $this->rating = null;
-            var_dump('il paramentro rating non è presente');
+            $this->rating = 'null';
         }
     }
 }
@@ -30,7 +47,7 @@ $marvel = new Production('Thor', 'Italiano', 4);
 $dc = new Production('Batman', 'Italiano', 3);
 $disney = new Production('Toy Story', 'Italinao', 5);
 
-// var_dump($marvel, $dc);
+// var_dump($marvel, $dc, $disney);
 
 $movies = [
     $marvel,
