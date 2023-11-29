@@ -15,6 +15,8 @@ $loki = new Series('Loki', 'ita', 4, '2 seasons');
 $friends = new Series('Friends', 'ita', 3, '15 seasons');
 $build = new Series('Build', 'ita', 3, '10 seasons');
 $time = new Series('Time', 'ita', 2, '1 season');
+$Avengers = new Movie('Age of Ultron', 'ita', 5, '2.5h', '400M');
+$Sherlock = new Series('Sherlock Holmes', 'ita', 4, '5 Seasons');
 
 // var_dump($marvel, $dc, $suits, $loki);
 
@@ -29,7 +31,8 @@ $movies = [
     $friends,
     $build,
     $time,
-
+    $Avengers,
+    $Sherlock
 ];
 
 // var_dump($movies);
@@ -44,15 +47,23 @@ $movies = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Movie list</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 0 auto;
+            padding: 100px;
+        }
+    </style>
 </head>
 
 <body>
     <div>
-        <table>
+        <table class="table table-bordered table-dark  table-hover">
             <thead>
                 <tr>
-                    <th>Film</th>
+                    <th>Film/Series</th>
                     <th>Language</th>
                     <th>Rating</th>
                     <th>Duraction</th>
