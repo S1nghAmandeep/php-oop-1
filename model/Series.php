@@ -15,7 +15,7 @@ class Series extends Production
 
     public function setSeason($season)
     {
-        if (is_numeric($season)) {
+        if (is_string($season)) {
             $this->season = $season;
         } else {
             $this->season = null;
@@ -24,6 +24,6 @@ class Series extends Production
 
     public function getSeason()
     {
-        $this->season;
+        return $this->season;
     }
 }
