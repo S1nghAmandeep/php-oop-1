@@ -55,4 +55,17 @@ class Production
     {
         return $this->rating;
     }
+
+    public function getRatingHTML()
+    {
+        $result = '';
+        for ($i = 0; $i < $this->rating; $i++) {
+            $result .= "&starf;";
+        }
+        for ($i = 0; $i < 5 - $this->rating; $i++) {
+            $result .= '&star;';
+        }
+        return $result;
+    }
 }
+// echo get_class($film);
