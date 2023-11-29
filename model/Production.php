@@ -56,15 +56,3 @@ class Production
         return $this->rating;
     }
 }
-
-$marvel = new Production('Thor', 'Italiano', 4);
-$dc = new Production('Batman', 'Italiano', 3);
-$disney = new Production('Toy Story', 'Italiano', 5);
-
-// var_dump($marvel, $dc, $disney);
-
-$movies = [
-    $marvel,
-    $dc,
-    $disney
-];
