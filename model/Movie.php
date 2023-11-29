@@ -5,7 +5,7 @@ require_once __DIR__ . './Production.php';
 class Movie extends Production
 {
     private $profit;
-    private $duraction;
+    private $duration;
 
     function __construct($_title, $_language, $_rating, $_duraction, $_profit)
     {
@@ -13,8 +13,8 @@ class Movie extends Production
         parent::__construct($_title, $_language, $_rating);
         // $this->profit = $_profit;
         $this->setProfit($_profit);
-        // $this->duraction = $_duraction;
-        $this->setDuraction($_duraction);
+        // $this->duration = $_duraction;
+        $this->setDuration($_duraction);
     }
 
     public function setProfit($profit)
@@ -26,12 +26,12 @@ class Movie extends Production
         }
     }
 
-    public function setDuraction($duraction)
+    public function setDuration($duration)
     {
-        if (is_string($duraction)) {
-            $this->duraction = $duraction;
+        if (is_string($duration)) {
+            $this->duration = $duration;
         } else {
-            $this->duraction = null;
+            $this->duration = null;
         }
     }
 
@@ -40,8 +40,8 @@ class Movie extends Production
         return $this->profit;
     }
 
-    public function getDuraction()
+    public function getDuration()
     {
-        return $this->duraction;
+        return $this->duration;
     }
 }

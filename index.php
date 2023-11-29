@@ -16,7 +16,7 @@ $friends = new Series('Friends', 'ita', 3, '15 seasons');
 $build = new Series('Build', 'ita', 3, '10 seasons');
 $time = new Series('Time', 'ita', 2, '1 season');
 $Avengers = new Movie('Age of Ultron', 'ita', 5, '2.5h', '400M');
-$Sherlock = new Series('Sherlock Holmes', 'ita', 4, '5 Seasons');
+$Sherlock = new Series('Sherlock Holmes', 'ita', 4, '5 seasons');
 
 // var_dump($marvel, $dc, $suits, $loki);
 
@@ -66,7 +66,7 @@ $movies = [
                     <th>Film/Series</th>
                     <th>Language</th>
                     <th>Rating</th>
-                    <th>Duraction</th>
+                    <th>Duration</th>
                 </tr>
             </thead>
             <tbody>
@@ -79,7 +79,7 @@ $movies = [
                         </td>
                         <td>
                             <?php if (get_class($film) === 'Movie') {
-                                echo $film->getDuraction();
+                                echo $film->getDuration();
                             } else {
                                 echo $film->getSeason();
                             }
