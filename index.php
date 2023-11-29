@@ -5,18 +5,18 @@ require_once __DIR__ . './model/Production.php';
 require_once __DIR__ . './model/Movie.php';
 require_once __DIR__ . './model/Series.php';
 
-$marvel = new Movie('Thor', 'Italiano', 4, '2h', '100M');
-$dc = new Movie('Batman', 'Italiano', 3, '3h', '50M');
-$disney = new Movie('Toy Story', 'Italiano', 5, '1.5h', '200M');
+$marvel = new Movie('Thor', 'Ita', 4, '2h', '100M');
+$dc = new Movie('Batman', 'Ita', 3, '3h', '50M');
+$disney = new Movie('Toy Story', 'Ita', 5, '1.5h', '200M');
 $iron_Man = new Movie('Iron Man', 'ita', 5, '2h', '200M');
 $titanic = new Movie('Titanic', 'ita', 5, '3h', '500M');
-$suits = new Series('Suits', 'Ita', 4, 10);
-$loki = new Series('Loki', 'ita', 4, 2);
-$friends = new Series('Friends', 'ita', 3, 15);
-$build = new Series('Build', 'ita', 3, 10);
-$time = new Series('Time', 'ita', 2, 1);
+$suits = new Series('Suits', 'Ita', 4, '10 seasons');
+$loki = new Series('Loki', 'ita', 4, '2 seasons');
+$friends = new Series('Friends', 'ita', 3, '15 seasons');
+$build = new Series('Build', 'ita', 3, '10 seasons');
+$time = new Series('Time', 'ita', 2, '1 season');
 
-var_dump($marvel, $dc, $suits, $loki);
+// var_dump($marvel, $dc, $suits, $loki);
 
 $movies = [
     $marvel,
@@ -29,8 +29,10 @@ $movies = [
     $friends,
     $build,
     $time,
+
 ];
 
+// var_dump($movies);
 
 
 ?>
@@ -53,6 +55,7 @@ $movies = [
                     <th>Film</th>
                     <th>Language</th>
                     <th>Rating</th>
+                    <th>Duraction</th>
                 </tr>
             </thead>
             <tbody>
@@ -61,12 +64,15 @@ $movies = [
                         <td><?php echo $film->title ?></td>
                         <td><?php echo $film->language ?></td>
                         <td>
-                            <?php for ($i = 0; $i < $film->rating; $i++) { ?>
-                                &starf;
-                            <?php }
-                            for ($i = 0; $i < 5 - $film->rating; $i++) { ?>
-                                &star;
-                            <?php } ?>
+                            <?php echo $film->getRatingHTML() ?>
+                        </td>
+                        <td>
+                            <?php if (get_class($film) === 'Movie') {
+                                echo $film->getDuraction();
+                            } else {
+                                echo $film->getSeason();
+                            }
+                            ?>
                         </td>
                     </tr>
                 <?php } ?>
